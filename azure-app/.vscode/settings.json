@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/6d0aa21c-d2ce-4a25-890c-df31febdbe94/resourceGroups/az-app/providers/Microsoft.Web/sites/hello-rakib",
+    "appService.deploySubpath": "publish"
+}

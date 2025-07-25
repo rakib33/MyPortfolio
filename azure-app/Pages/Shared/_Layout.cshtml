@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   @*  <title>@ViewData["Title"] - azure_app</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/azure_app.styles.css" asp-append-version="true" /> *@
+    <title>Rakibul Islam | Senior .NET Developer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="~/css/portfolio.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="~/images/RakibulIslam.ico">
+</head>
+<body>
+  
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="#">Rakibul Islam</a>
+                <button class="navbar-toggler" type="button" id="navbarToggler">
+              @*   data-bs-toggle="collapse" data-bs-target="#navbarNav"> *@
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#skills">Skills</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#experience">Experience</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#projects">Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#education">Education</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer text-center">
+        <div class="container">
+            <div class="mb-4">
+                <img src="~/images/RakibulIslam.jpg" alt="Rakibul Islam" class="rounded-circle" width="80">
+            </div>
+            <h3 class="mb-3">Rakibul Islam</h3>
+            <p class="mb-4">Senior .NET Developer | 11+ Years of Experience</p>
+
+            <div class="social-icons mb-4">
+                @* social-links *@
+                <a target="_blank" href="https://www.linkedin.com/in/rakibul33/"><i class="fab fa-linkedin-in"></i></a>
+                <a target="_blank" href="https://github.com/rakib33"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+            </div>
+
+            <p>&copy; 2025 Rakibul Islam. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Navbar active state on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+
+                if (pageYOffset >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+             // Navbar background change on scroll
+           window.addEventListener('scroll', function() {
+               const navbar = document.querySelector('.navbar');
+               if (window.scrollY > 50) {
+                   navbar.style.backgroundColor = 'rgba(44, 62, 80, 0.95)';
+                   navbar.style.padding = '10px 0';
+               } else {
+                   navbar.style.backgroundColor = '';
+                   navbar.style.padding = '';
+               }
+           });
+
+        // Initialize tooltips
+        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+
+     // document.querySelector('.navbar-toggler').addEventListener('click', function() {
+     //     alert('alert');
+     //  document.querySelector('#navbarNav').classList.toggle('show');
+     // });
+
+        // Custom navbar toggle functionality
+           document.getElementById('navbarToggler').addEventListener('click', function() {
+               const navbarCollapse = document.getElementById('navbarNav');
+
+               // Toggle the 'show' class to expand/collapse the menu
+               if (navbarCollapse.classList.contains('show')) {
+                   navbarCollapse.classList.remove('show');
+               } else {
+                   navbarCollapse.classList.add('show');
+               }
+           });
+
+               // Close navbar when clicking a nav link
+           document.querySelectorAll('.nav-link').forEach(link => {
+               link.addEventListener('click', () => {
+                   document.getElementById('navbarNav').classList.remove('show');
+               });
+           });
+
+
+    </script>
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

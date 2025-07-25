@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>azure_app</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Pages\Shared\_Layout.cshtml~RF50a7fad.TMP" />
+    <None Remove="Pages\_ViewStart.cshtml~RF5610a08.TMP" />
+  </ItemGroup>
+
+</Project>
